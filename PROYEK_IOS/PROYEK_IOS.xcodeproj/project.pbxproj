@@ -18,6 +18,8 @@
 		496F94542B2CA5B7007AA0A7 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 496F94532B2CA5B7007AA0A7 /* FirebaseFirestore */; };
 		496F94562B2CA5B7007AA0A7 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 496F94552B2CA5B7007AA0A7 /* FirebaseFirestoreSwift */; };
 		496F94582B2CA5B7007AA0A7 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 496F94572B2CA5B7007AA0A7 /* FirebaseStorage */; };
+		ADAFD7572B2DF50C00399888 /* ViewControllerDetailFilm.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAFD7552B2DF50C00399888 /* ViewControllerDetailFilm.swift */; };
+		ADAFD7582B2DF50C00399888 /* ViewControllerDetailFilm.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADAFD7562B2DF50C00399888 /* ViewControllerDetailFilm.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		496F94462B2CA36E007AA0A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		496F94482B2CA36E007AA0A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		496F944E2B2CA495007AA0A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		ADAFD7552B2DF50C00399888 /* ViewControllerDetailFilm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerDetailFilm.swift; sourceTree = "<group>"; };
+		ADAFD7562B2DF50C00399888 /* ViewControllerDetailFilm.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewControllerDetailFilm.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,8 @@
 				496F94452B2CA36E007AA0A7 /* LaunchScreen.storyboard */,
 				496F94482B2CA36E007AA0A7 /* Info.plist */,
 				496F944E2B2CA495007AA0A7 /* GoogleService-Info.plist */,
+				ADAFD7552B2DF50C00399888 /* ViewControllerDetailFilm.swift */,
+				ADAFD7562B2DF50C00399888 /* ViewControllerDetailFilm.xib */,
 			);
 			path = PROYEK_IOS;
 			sourceTree = "<group>";
@@ -147,6 +153,7 @@
 			files = (
 				496F94472B2CA36E007AA0A7 /* LaunchScreen.storyboard in Resources */,
 				496F94442B2CA36E007AA0A7 /* Assets.xcassets in Resources */,
+				ADAFD7582B2DF50C00399888 /* ViewControllerDetailFilm.xib in Resources */,
 				496F94422B2CA36C007AA0A7 /* Main.storyboard in Resources */,
 				496F944F2B2CA496007AA0A7 /* GoogleService-Info.plist in Resources */,
 			);
@@ -162,6 +169,7 @@
 				496F943F2B2CA36C007AA0A7 /* ViewController.swift in Sources */,
 				496F943B2B2CA36C007AA0A7 /* AppDelegate.swift in Sources */,
 				496F943D2B2CA36C007AA0A7 /* SceneDelegate.swift in Sources */,
+				ADAFD7572B2DF50C00399888 /* ViewControllerDetailFilm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
