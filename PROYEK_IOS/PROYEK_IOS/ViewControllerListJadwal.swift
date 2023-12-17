@@ -9,9 +9,7 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 
-class ViewControllerListJadwal: UIViewController ,UITableViewDelegate, UITableViewDataSource{
-    
-    
+class ViewControllerListJadwal: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var tableFilm: UITableView!
     @IBOutlet weak var telpBioskop: UILabel!

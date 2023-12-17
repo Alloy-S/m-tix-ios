@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--View Controller List Jadwal2-->
         <scene sceneID="xrS-jq-I1k">
             <objects>
-                <viewController id="THO-ev-cZu" sceneMemberID="viewController">
+                <viewController restorationIdentifier="ViewControllerListJadwal2" storyboardIdentifier="ViewControllerListJadwal2" id="THO-ev-cZu" customClass="ViewControllerListJadwal2" customModule="PROYEK_IOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yTJ-gu-miY">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -56,7 +56,7 @@
                                 <rect key="frame" x="20" y="198" width="353" height="620"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellJadwal2" id="LPT-69-p4b" customClass="TableViewCellListJadwal" customModule="PROYEK_IOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellJadwal2" id="LPT-69-p4b" customClass="TableViewCellListJadwal2" customModule="PROYEK_IOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="353" height="280.33334350585938"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LPT-69-p4b" id="KJt-B2-PjW">
@@ -189,16 +189,20 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="dimensiFilm" destination="EfK-5e-ahV" id="6ub-ze-4ov"/>
-                                            <outlet property="durasiFilm" destination="FUC-F2-J2y" id="haX-sU-uXV"/>
-                                            <outlet property="hargaFilm" destination="xaT-8Y-aku" id="afB-Vg-TMW"/>
-                                            <outlet property="jamFilm" destination="PtX-3A-xZ8" id="1HJ-I7-2pG"/>
-                                            <outlet property="namaFilm" destination="MrY-bV-Uvc" id="pQ7-iD-JQ2"/>
-                                            <outlet property="ratingFilm" destination="1ZO-zV-ldR" id="taf-li-Lgi"/>
-                                            <outlet property="tanggalFilm" destination="0WL-B4-DsH" id="2sl-i9-uMW"/>
+                                            <outlet property="dimensiFilm" destination="EfK-5e-ahV" id="ZjO-oj-2J4"/>
+                                            <outlet property="durasiFilm" destination="FUC-F2-J2y" id="1gM-2h-Mme"/>
+                                            <outlet property="hargaFilm" destination="xaT-8Y-aku" id="utN-34-sDY"/>
+                                            <outlet property="jamFilm" destination="PtX-3A-xZ8" id="9aE-5t-jNt"/>
+                                            <outlet property="namaFilm" destination="MrY-bV-Uvc" id="Vyf-5I-ZQb"/>
+                                            <outlet property="ratingFilm" destination="1ZO-zV-ldR" id="Nmq-o2-GUn"/>
+                                            <outlet property="tanggalFilm" destination="0WL-B4-DsH" id="xQ2-f8-PZa"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="THO-ev-cZu" id="A66-um-gpv"/>
+                                    <outlet property="delegate" destination="THO-ev-cZu" id="Dcf-cd-hph"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3d5-G5-HcG"/>
@@ -215,10 +219,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fhB-9o-y7t"/>
+                    <connections>
+                        <outlet property="alamatBioskop" destination="jzP-bg-FBR" id="FC2-VO-Nxf"/>
+                        <outlet property="namaBioskop" destination="1BZ-T6-Yzt" id="85u-tU-U7p"/>
+                        <outlet property="tableFilm" destination="Zqs-YX-KTm" id="Zqs-B6-hW4"/>
+                        <outlet property="telpBioskop" destination="4gf-5b-GKR" id="bh9-To-O1U"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cuj-Uv-65i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-323" y="1246"/>
+            <point key="canvasLocation" x="-179" y="1943"/>
         </scene>
         <!--View Controller Detail Film-->
         <scene sceneID="uCn-Be-WRS">
@@ -429,7 +439,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gRW-Mc-rMx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2167" y="1202"/>
+            <point key="canvasLocation" x="-2167.1755725190837" y="1201.4084507042255"/>
         </scene>
         <!--View Controller List Bioskop-->
         <scene sceneID="Jfl-b1-HP3">
@@ -571,7 +581,7 @@
                         <nil key="title"/>
                         <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="e7l-Zb-IY1">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="gs6-gz-OOj">
-                                <rect key="frame" x="245.33333333333337" y="5" width="87" height="34.333333333333336"/>
+                                <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="arrow.triangle.2.circlepath" catalog="system">
@@ -820,7 +830,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1l1-EG-OzE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1105" y="1943"/>
+            <point key="canvasLocation" x="-1103" y="1943"/>
         </scene>
         <!--Item-->
         <scene sceneID="rxK-OO-Vx5">
@@ -1286,7 +1296,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PMc-RK-Hap" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1998" y="1943"/>
+            <point key="canvasLocation" x="-2167" y="1943"/>
         </scene>
     </scenes>
     <resources>

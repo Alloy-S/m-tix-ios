@@ -32,15 +32,13 @@ class ViewControllerMovieListBioskop: UIViewController, UITableViewDelegate, UIT
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var selectedItem = Bioskop(bioskopId: "", alamat: "", nama: "", telp: "", movieId: [])
-        if filtered {
-            selectedItem = filteredBioskop[indexPath.row]
-        } else {
-            selectedItem = arBioskop[indexPath.row]
-        }
-        let detailVC = ViewControllerListJadwal(nibName: "ViewControllerListJadwal", bundle: nil)
-        detailVC.idBioskop = selectedItem.bioskopId
-        navigationController?.pushViewController(detailVC, animated: true)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ViewControllerListJadwal2") as! ViewControllerListJadwal2
+        var selectedItem = arBioskop[indexPath.row]
+        vc.idBioskop = selectedItem.bioskopId
+        vc.idMovieFix = self.movieID
+        print("pass id bioskop : \(selectedItem.bioskopId)")
+        print("pass id movie : \(self.movieID)")
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
