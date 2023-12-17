@@ -6,24 +6,88 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class ViewControllerDetailFilm: UIViewController {
 
+    
+    @IBOutlet weak var director: UILabel!
+    @IBOutlet weak var cast: UILabel!
+    @IBOutlet weak var distributor: UILabel!
+    @IBOutlet weak var writer: UILabel!
+    @IBOutlet weak var producer: UILabel!
+    @IBOutlet weak var sinopsis: UILabel!
+    @IBOutlet weak var rating: UILabel!
+    @IBOutlet weak var durasi: UILabel!
+    @IBOutlet weak var genre: UILabel!
+
+    @IBOutlet weak var judul: UILabel!
+    //    var idFilm : String = ""
+    var idFilm : String = "lsaFIZONK1QSfUD9bldh"
+    var db: Firestore!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        db = Firestore.firestore()
+        db.collection("Movie").getDocuments { (querySnapshot, error) in
+            if let error = error {
+                print("Error getting documents: \(error)")
+            } else {
+                for document in querySnapshot!.documents {
+                    
+                    // Access data from the document
+                    
+                    let idMovie = document.documentID
+                    
+                    if(idMovie == self.idFilm){
+                        let data = document.data()
+                        self.judul.text = data["nama"] as? String ?? ""
+                        if let durasi = data["durasi"] as? Int {
+                            self.durasi.text = String(durasi)
+                        } else if let durasi = data["durasi"] as? NSNumber {
+                            self.durasi.text = durasi.isEqual(to: durasi.intValue as NSNumber) ? "\(durasi.intValue)" : "\(durasi.doubleValue)"
+                        } else {
+                            self.durasi.text = "N/A"
+                        }
+                        self.rating.text =  data["rate"] as? String ?? ""
+                        print("2 \(idMovie)")
+                        self.db.collection("detailMovie").whereField("movieId", isEqualTo: idMovie).getDocuments { (querySnapshot, error) in
+                            if let error = error {
+                                print("Error getting documents: \(error)")
+                            } else {
+                                for document in querySnapshot!.documents {
+                                    print("masukk")
+                                    let data2 = document.data()
+                                    print(data2["distributor"] as? String ?? "")
+                                    self.genre.text = data2["genre"] as? String ?? ""
+                                    self.cast.text = data2["cast"] as? String ?? ""
+                                    self.director.text = data2["director"] as? String ?? ""
+                                    self.distributor.text = data2["distributor"] as? String ?? ""
+                                    self.producer.text = data2["producer"] as? String ?? ""
+                                    self.sinopsis.text = data2["synopsis"] as? String ?? ""
+                                    self.writer.text = data2["writer"] as? String ?? ""
+                                }
+                            }
+                        }
+                        
+                    }
+                }
+            }
+            // Do any additional setup after loading the view.
+        }
+        
+        
+        /*
+         // MARK: - Navigation
+         
+         // In a storyboard-based application, you will often want to do a little preparation before navigation
+         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         // Get the new view controller using segue.destination.
+         // Pass the selected object to the new view controller.
+         }
+         */
+        
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

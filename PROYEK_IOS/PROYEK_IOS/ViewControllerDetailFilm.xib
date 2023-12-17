@@ -59,17 +59,17 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b48-al-7c1">
                                     <rect key="frame" x="0.0" y="114.66666666666666" width="166.33333333333334" height="28"/>
                                     <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="filled" title="PLAYING AT"/>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQV-nb-2js">
                                     <rect key="frame" x="0.0" y="152.66666666666666" width="166.33333333333334" height="28.333333333333343"/>
                                     <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="filled" title="BUY TICKET"/>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i8q-sQ-Wpv">
                                     <rect key="frame" x="0.0" y="191" width="166.33333333333334" height="28"/>
                                     <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="filled" title="TRAILER"/>
                                 </button>
                             </subviews>
                         </stackView>
