@@ -20,6 +20,13 @@ class ViewControllerListBioskop: UIViewController, UITableViewDelegate, UITableV
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedItem = arBioskop[indexPath.row]
+        let detailVC = ViewControllerListJadwal(nibName: "ViewControllerListJadwal", bundle: nil)
+        detailVC.idBioskop = selectedItem.bioskopId
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -41,12 +48,12 @@ class ViewControllerListBioskop: UIViewController, UITableViewDelegate, UITableV
                 for document in querySnapshot!.documents {
                     print(document.data())
                     let readData = document.data()
-                    
+                    let bioskopId = document.documentID
                     if let nama = readData["nama"] as? String,
                        let alamat = readData["alamat"] as? String,
                        let telp = readData["telp"] as? String,
                        let movieId = readData["movieId"] as? [String] {
-                        let bioskop = Bioskop(alamat: alamat, nama: nama, telp: telp, movieId: movieId)
+                        let bioskop = Bioskop(bioskopId : bioskopId, alamat: alamat, nama: nama, telp: telp, movieId: movieId)
                         self.arBioskop.append(bioskop)
                     }
                 }

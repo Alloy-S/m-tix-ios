@@ -11,17 +11,19 @@ import FirebaseFirestore
 class ViewControllerDetailFilm: UIViewController {
 
     
-    @IBOutlet weak var director: UILabel!
+    @IBOutlet weak var judul: UILabel!
+    
+    @IBOutlet weak var genre: UILabel!
+    
+    @IBOutlet weak var durasi: UILabel!
+    
     @IBOutlet weak var cast: UILabel!
     @IBOutlet weak var distributor: UILabel!
     @IBOutlet weak var writer: UILabel!
+    @IBOutlet weak var director: UILabel!
     @IBOutlet weak var producer: UILabel!
     @IBOutlet weak var sinopsis: UILabel!
     @IBOutlet weak var rating: UILabel!
-    @IBOutlet weak var durasi: UILabel!
-    @IBOutlet weak var genre: UILabel!
-
-    @IBOutlet weak var judul: UILabel!
     //    var idFilm : String = ""
     var idFilm : String = "lsaFIZONK1QSfUD9bldh"
     var db: Firestore!
@@ -43,6 +45,7 @@ class ViewControllerDetailFilm: UIViewController {
                     
                     if(idMovie == self.idFilm){
                         let data = document.data()
+                        print(data["nama"] as? String ?? "")
                         self.judul.text = data["nama"] as? String ?? ""
                         if let durasi = data["durasi"] as? Int {
                             self.durasi.text = String(durasi)

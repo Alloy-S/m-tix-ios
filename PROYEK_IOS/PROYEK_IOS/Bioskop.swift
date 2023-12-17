@@ -8,6 +8,7 @@
 import Foundation
 
 struct Bioskop: Decodable, Encodable {
+    let bioskopId: String
     let alamat: String
     let nama: String
     let telp: String
