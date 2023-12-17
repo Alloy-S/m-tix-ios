@@ -442,6 +442,9 @@
                                 <rect key="frame" x="10" y="163" width="373" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="gMe-yC-M4r" id="Ipq-ed-77F"/>
+                                </connections>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cA7-YM-h0Y">
                                 <rect key="frame" x="0.0" y="207" width="393" height="562"/>
@@ -589,6 +592,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="cA7-YM-h0Y" id="yDH-nD-jeH"/>
+                        <outlet property="tfSearch" destination="e0u-gM-Fkr" id="2fJ-ew-TJa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SIc-BK-tzX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -904,6 +908,9 @@
                                 <rect key="frame" x="10" y="160" width="373" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Ohd-f0-9Da" id="eUv-05-e0W"/>
+                                </connections>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eYC-Ee-3KT">
                                 <rect key="frame" x="0.0" y="204" width="393" height="614"/>
@@ -1070,7 +1077,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PMc-RK-Hap" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1117" y="2006"/>
+            <point key="canvasLocation" x="-1998" y="1943"/>
         </scene>
     </scenes>
     <resources>
