@@ -27,6 +27,8 @@
 		AB5F24142B2F0ADB006CA139 /* ViewControllerListJadwal.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5F24132B2F0ADB006CA139 /* ViewControllerListJadwal.swift */; };
 		ADAFD7572B2DF50C00399888 /* ViewControllerDetailFilm.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAFD7552B2DF50C00399888 /* ViewControllerDetailFilm.swift */; };
 		ADAFD7582B2DF50C00399888 /* ViewControllerDetailFilm.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADAFD7562B2DF50C00399888 /* ViewControllerDetailFilm.xib */; };
+		B028882C2B2F4CBC005574A8 /* upComing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B028882B2B2F4CBC005574A8 /* upComing.swift */; };
+		B028882E2B2F4E1E005574A8 /* nowPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = B028882D2B2F4E1E005574A8 /* nowPlaying.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		AB5F24132B2F0ADB006CA139 /* ViewControllerListJadwal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerListJadwal.swift; sourceTree = "<group>"; };
 		ADAFD7552B2DF50C00399888 /* ViewControllerDetailFilm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerDetailFilm.swift; sourceTree = "<group>"; };
 		ADAFD7562B2DF50C00399888 /* ViewControllerDetailFilm.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewControllerDetailFilm.xib; sourceTree = "<group>"; };
+		B028882B2B2F4CBC005574A8 /* upComing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = upComing.swift; sourceTree = "<group>"; };
+		B028882D2B2F4E1E005574A8 /* nowPlaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nowPlaying.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,8 @@
 				49A7E2FF2B2F0FEF00C68050 /* ViewControllerMovieListBioskop.swift */,
 				49A7E3012B2F101500C68050 /* MovieListBioskopCell.swift */,
 				49A7E3032B2F245000C68050 /* TableViewCellListJadwal.swift */,
+				B028882B2B2F4CBC005574A8 /* upComing.swift */,
+				B028882D2B2F4E1E005574A8 /* nowPlaying.swift */,
 			);
 			path = PROYEK_IOS;
 			sourceTree = "<group>";
@@ -194,10 +200,12 @@
 				49A7E3042B2F245000C68050 /* TableViewCellListJadwal.swift in Sources */,
 				AB5F24142B2F0ADB006CA139 /* ViewControllerListJadwal.swift in Sources */,
 				496F943B2B2CA36C007AA0A7 /* AppDelegate.swift in Sources */,
+				B028882E2B2F4E1E005574A8 /* nowPlaying.swift in Sources */,
 				496F943D2B2CA36C007AA0A7 /* SceneDelegate.swift in Sources */,
 				49A7E2FE2B2EEB9E00C68050 /* Bioskop.swift in Sources */,
 				49A7E3022B2F101500C68050 /* MovieListBioskopCell.swift in Sources */,
 				ADAFD7572B2DF50C00399888 /* ViewControllerDetailFilm.swift in Sources */,
+				B028882C2B2F4CBC005574A8 /* upComing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +359,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -378,6 +387,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
