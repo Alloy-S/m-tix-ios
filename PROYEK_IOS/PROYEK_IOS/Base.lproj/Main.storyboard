@@ -252,7 +252,7 @@
                                 <rect key="frame" x="0.0" y="207" width="393" height="562"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cellListBioskop" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="riY-S2-y9K" customClass="TableViewCellListBioskop" customModule="PROYEK_IOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellListBioskop" id="riY-S2-y9K" customClass="TableViewCellListBioskop" customModule="PROYEK_IOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="60.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="riY-S2-y9K" id="PKW-6W-nwF">
@@ -310,6 +310,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="gMe-yC-M4r" id="4zp-bM-M89"/>
+                                    <outlet property="delegate" destination="gMe-yC-M4r" id="VQv-D2-eL0"/>
+                                </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ID8-id-G1Z">
                                 <rect key="frame" x="0.0" y="103" width="393" height="50"/>
@@ -363,6 +367,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="j35-8W-ydk"/>
+                    <connections>
+                        <outlet property="tableView" destination="cA7-YM-h0Y" id="yDH-nD-jeH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SIc-BK-tzX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
