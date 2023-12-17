@@ -8,22 +8,78 @@
 import UIKit
 import FirebaseFirestore
 
-class ViewControllerMovieListBioskop: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewControllerMovieListBioskop: UIViewController, UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arBioskop.count
+        if filtered {
+            print("filtered")
+            return filteredBioskop.count
+        } else {
+            print("origin")
+            return arBioskop.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellMovieListBioskop")! as! MovieListBioskopCell
         
-        cell.namaTheater.text = arBioskop[indexPath.row].nama
+        if filtered {
+            cell.namaTheater.text = filteredBioskop[indexPath.row].nama
+        } else {
+            cell.namaTheater.text = arBioskop[indexPath.row].nama
+        }
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var selectedItem = Bioskop(bioskopId: "", alamat: "", nama: "", telp: "", movieId: [])
+        if filtered {
+            selectedItem = filteredBioskop[indexPath.row]
+        } else {
+            selectedItem = arBioskop[indexPath.row]
+        }
+        let detailVC = ViewControllerListJadwal(nibName: "ViewControllerListJadwal", bundle: nil)
+        detailVC.idBioskop = selectedItem.bioskopId
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let text = tfSearch.text {
+            filterData(text + string)
+        }
+        
+        return true
+    }
+    
+    func filterData(_ query: String) {
+        filteredBioskop.removeAll()
+        
+        
+        for i in 0...arBioskop.count-1 {
+            if arBioskop[i].nama.lowercased().contains(query.lowercased()) {
+                filteredBioskop.append(arBioskop[i])
+                filtered = true
+            }
+        }
+        
+        if filteredBioskop.isEmpty {
+            filtered = false
+        }
+//        print(query + "----")
+//        if query == "" {
+//            filtered = false
+//        }
+        
+        tableView.reloadData()
+        filtered = false
+    }
+    
+    var filtered = false
+    
     let db = Firestore.firestore()
     
     var arBioskop: [Bioskop] = []
+    var filteredBioskop : [Bioskop] = []
 
     @IBAction func BtnLocation(_ sender: UIButton) {
     }
@@ -54,7 +110,6 @@ class ViewControllerMovieListBioskop: UIViewController, UITableViewDelegate, UIT
                        let alamat = readData["alamat"] as? String,
                        let telp = readData["telp"] as? String,
                        let movieId = readData["movieId"] as? [String] {
-                        let compare = "wrkahrffa"
                         for item in movieId {
                             if item == movieID {
                                 let bioskop = Bioskop(bioskopId: bioskopId, alamat: alamat, nama: nama, telp: telp, movieId: movieId)
@@ -73,6 +128,8 @@ class ViewControllerMovieListBioskop: UIViewController, UITableViewDelegate, UIT
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tfSearch?.delegate = self
         judulMovie.text = nama_film
         loadData(movieID)
         // Do any additional setup after loading the view.

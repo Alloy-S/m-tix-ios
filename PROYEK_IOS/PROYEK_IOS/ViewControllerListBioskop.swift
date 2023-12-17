@@ -10,15 +10,21 @@ import FirebaseFirestore
 
 class ViewControllerListBioskop: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(filteredBioskop)
+        print(arBioskop)
+        print(filtered)
         if filtered {
+            print("filtered")
             return filteredBioskop.count
         } else {
+            print("origin")
             return arBioskop.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellListBioskop")! as! TableViewCellListBioskop
+        print(filtered)
         if filtered {
             cell.namaBioskop.text = filteredBioskop[indexPath.row].nama
         } else {
@@ -49,17 +55,25 @@ class ViewControllerListBioskop: UIViewController, UITableViewDelegate, UITableV
     
     func filterData(_ query: String) {
         filteredBioskop.removeAll()
+        
+        
         for i in 0...arBioskop.count-1 {
             if arBioskop[i].nama.lowercased().contains(query.lowercased()) {
                 filteredBioskop.append(arBioskop[i])
+                filtered = true
             }
         }
         
         if filteredBioskop.isEmpty {
             filtered = false
         }
+//        print(query + "----")
+//        if query == "" {
+//            filtered = false
+//        }
+        
         tableView.reloadData()
-        filtered = true
+        filtered = false
     }
     
     var filtered = false
