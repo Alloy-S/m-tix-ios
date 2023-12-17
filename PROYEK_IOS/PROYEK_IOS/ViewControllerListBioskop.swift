@@ -29,15 +29,16 @@ class ViewControllerListBioskop: UIViewController, UITableViewDelegate, UITableV
     
     
     
+    @IBAction func btnReload(_ sender: UIButton) {
+        loadData()
+    }
     @IBOutlet weak var tableView: UITableView!
     
     let db = Firestore.firestore()
     
     var arBioskop: [Bioskop] = []
-    override func viewDidLoad() {
-        super.viewDidLoad()
-//        tableView.delegate = self
-//        tableView.dataSource = self
+    
+    func loadData() {
         db.collection("Bioskop").getDocuments() { (querySnapshot, err)
             in
             if let err = err
@@ -45,6 +46,7 @@ class ViewControllerListBioskop: UIViewController, UITableViewDelegate, UITableV
                 print("Error getting documents: \(err)")
             } else {
                 self.arBioskop.removeAll()
+                self.tableView.reloadData()
                 for document in querySnapshot!.documents {
                     print(document.data())
                     let readData = document.data()
@@ -59,20 +61,21 @@ class ViewControllerListBioskop: UIViewController, UITableViewDelegate, UITableV
                 }
                 self.tableView.reloadData()
             }
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+//        navigationController?.navigationBar
+//        tableView.delegate = self
+//        tableView.dataSource = self
+        
             // Do any additional setup after loading the view.
             
+            loadData()
             
-            
-            /*
-             // MARK: - Navigation
-             
-             // In a storyboard-based application, you will often want to do a little preparation before navigation
-             override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-             // Get the new view controller using segue.destination.
-             // Pass the selected object to the new view controller.
-             }
-             */
-            
-        }
+        
     }
 }

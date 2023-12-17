@@ -29,6 +29,13 @@ class ViewControllerDetailFilm: UIViewController {
     var db: Firestore!
     
     
+    @IBAction func btnPlayingAt(_ sender: UIButton) {
+        let playingAt = self.storyboard?.instantiateViewController(withIdentifier: "ViewControllerMovieListBioskop") as! ViewControllerMovieListBioskop
+        playingAt.nama_film = "MASUKIN JUDUL KE SINI"
+        playingAt.movieID = idFilm
+        self.navigationController?.pushViewController(playingAt, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -19,9 +19,11 @@
 		496F94562B2CA5B7007AA0A7 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 496F94552B2CA5B7007AA0A7 /* FirebaseFirestoreSwift */; };
 		496F94582B2CA5B7007AA0A7 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 496F94572B2CA5B7007AA0A7 /* FirebaseStorage */; };
 		49A7E2FE2B2EEB9E00C68050 /* Bioskop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A7E2FD2B2EEB9E00C68050 /* Bioskop.swift */; };
+		49A7E3002B2F0FEF00C68050 /* ViewControllerMovieListBioskop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A7E2FF2B2F0FEF00C68050 /* ViewControllerMovieListBioskop.swift */; };
+		49A7E3022B2F101500C68050 /* MovieListBioskopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A7E3012B2F101500C68050 /* MovieListBioskopCell.swift */; };
+		49A7E3042B2F245000C68050 /* TableViewCellListJadwal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A7E3032B2F245000C68050 /* TableViewCellListJadwal.swift */; };
 		49ADA7DE2B2E0CD000495F64 /* ViewControllerListBioskop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ADA7DD2B2E0CD000495F64 /* ViewControllerListBioskop.swift */; };
 		49ADA7E02B2E0D3000495F64 /* TableViewCellListBioskop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ADA7DF2B2E0D3000495F64 /* TableViewCellListBioskop.swift */; };
-		AB5F24122B2F097E006CA139 /* TableViewCellListJadwal.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5F24112B2F097E006CA139 /* TableViewCellListJadwal.swift */; };
 		AB5F24142B2F0ADB006CA139 /* ViewControllerListJadwal.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5F24132B2F0ADB006CA139 /* ViewControllerListJadwal.swift */; };
 		ADAFD7572B2DF50C00399888 /* ViewControllerDetailFilm.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAFD7552B2DF50C00399888 /* ViewControllerDetailFilm.swift */; };
 		ADAFD7582B2DF50C00399888 /* ViewControllerDetailFilm.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADAFD7562B2DF50C00399888 /* ViewControllerDetailFilm.xib */; };
@@ -38,9 +40,11 @@
 		496F94482B2CA36E007AA0A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		496F944E2B2CA495007AA0A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		49A7E2FD2B2EEB9E00C68050 /* Bioskop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bioskop.swift; sourceTree = "<group>"; };
+		49A7E2FF2B2F0FEF00C68050 /* ViewControllerMovieListBioskop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerMovieListBioskop.swift; sourceTree = "<group>"; };
+		49A7E3012B2F101500C68050 /* MovieListBioskopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListBioskopCell.swift; sourceTree = "<group>"; };
+		49A7E3032B2F245000C68050 /* TableViewCellListJadwal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellListJadwal.swift; sourceTree = "<group>"; };
 		49ADA7DD2B2E0CD000495F64 /* ViewControllerListBioskop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerListBioskop.swift; sourceTree = "<group>"; };
 		49ADA7DF2B2E0D3000495F64 /* TableViewCellListBioskop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellListBioskop.swift; sourceTree = "<group>"; };
-		AB5F24112B2F097E006CA139 /* TableViewCellListJadwal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TableViewCellListJadwal.swift; path = ../../../TableViewCellListJadwal.swift; sourceTree = "<group>"; };
 		AB5F24132B2F0ADB006CA139 /* ViewControllerListJadwal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerListJadwal.swift; sourceTree = "<group>"; };
 		ADAFD7552B2DF50C00399888 /* ViewControllerDetailFilm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerDetailFilm.swift; sourceTree = "<group>"; };
 		ADAFD7562B2DF50C00399888 /* ViewControllerDetailFilm.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewControllerDetailFilm.xib; sourceTree = "<group>"; };
@@ -85,7 +89,6 @@
 				496F943E2B2CA36C007AA0A7 /* ViewController.swift */,
 				496F94402B2CA36C007AA0A7 /* Main.storyboard */,
 				AB5F24132B2F0ADB006CA139 /* ViewControllerListJadwal.swift */,
-				AB5F24112B2F097E006CA139 /* TableViewCellListJadwal.swift */,
 				496F94432B2CA36E007AA0A7 /* Assets.xcassets */,
 				496F94452B2CA36E007AA0A7 /* LaunchScreen.storyboard */,
 				496F94482B2CA36E007AA0A7 /* Info.plist */,
@@ -95,6 +98,9 @@
 				49ADA7DD2B2E0CD000495F64 /* ViewControllerListBioskop.swift */,
 				49ADA7DF2B2E0D3000495F64 /* TableViewCellListBioskop.swift */,
 				49A7E2FD2B2EEB9E00C68050 /* Bioskop.swift */,
+				49A7E2FF2B2F0FEF00C68050 /* ViewControllerMovieListBioskop.swift */,
+				49A7E3012B2F101500C68050 /* MovieListBioskopCell.swift */,
+				49A7E3032B2F245000C68050 /* TableViewCellListJadwal.swift */,
 			);
 			path = PROYEK_IOS;
 			sourceTree = "<group>";
@@ -182,13 +188,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				49ADA7DE2B2E0CD000495F64 /* ViewControllerListBioskop.swift in Sources */,
+				49A7E3002B2F0FEF00C68050 /* ViewControllerMovieListBioskop.swift in Sources */,
 				49ADA7E02B2E0D3000495F64 /* TableViewCellListBioskop.swift in Sources */,
-				AB5F24122B2F097E006CA139 /* TableViewCellListJadwal.swift in Sources */,
 				496F943F2B2CA36C007AA0A7 /* ViewController.swift in Sources */,
+				49A7E3042B2F245000C68050 /* TableViewCellListJadwal.swift in Sources */,
 				AB5F24142B2F0ADB006CA139 /* ViewControllerListJadwal.swift in Sources */,
 				496F943B2B2CA36C007AA0A7 /* AppDelegate.swift in Sources */,
 				496F943D2B2CA36C007AA0A7 /* SceneDelegate.swift in Sources */,
 				49A7E2FE2B2EEB9E00C68050 /* Bioskop.swift in Sources */,
+				49A7E3022B2F101500C68050 /* MovieListBioskopCell.swift in Sources */,
 				ADAFD7572B2DF50C00399888 /* ViewControllerDetailFilm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
