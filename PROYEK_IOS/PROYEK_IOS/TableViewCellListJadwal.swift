@@ -9,6 +9,15 @@ import UIKit
 
 class TableViewCellListJadwal: UITableViewCell {
 
+    @IBOutlet weak var jamFilm: UILabel!
+
+    @IBOutlet weak var tanggalFilm: UILabel!
+    
+    @IBOutlet weak var hargaFilm: UILabel!
+    @IBOutlet weak var durasiFilm: UILabel!
+    @IBOutlet weak var ratingFilm: UILabel!
+    @IBOutlet weak var dimensiFilm: UILabel!
+    @IBOutlet weak var namaFilm: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

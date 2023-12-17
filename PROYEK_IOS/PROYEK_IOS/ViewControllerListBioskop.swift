@@ -34,15 +34,27 @@ class ViewControllerListBioskop: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var selectedItem = Bioskop(bioskopId: "", alamat: "", nama: "", telp: "", movieId: [])
-        if filtered {
-            selectedItem = filteredBioskop[indexPath.row]
-        } else {
-            selectedItem = arBioskop[indexPath.row]
-        }
-        let detailVC = ViewControllerListJadwal(nibName: "ViewControllerListJadwal", bundle: nil)
-        detailVC.idBioskop = selectedItem.bioskopId
-        navigationController?.pushViewController(detailVC, animated: true)
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ViewControllerListJadwal") as! ViewControllerListJadwal
+        var selectedItem = arBioskop[indexPath.row]
+        vc.idBioskop = selectedItem.bioskopId
+//        if filtered {
+//            selectedItem = filteredBioskop[indexPath.row]
+//        } else {
+//            selectedItem = arBioskop[indexPath.row]
+//        }
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+        //
+        //        var selectedItem = Bioskop(bioskopId: "", alamat: "", nama: "", telp: "", movieId: [])
+        //        if filtered {
+        //            selectedItem = filteredBioskop[indexPath.row]
+        //        } else {
+        //            selectedItem = arBioskop[indexPath.row]
+        //        }
+        //        let detailVC = ViewControllerListJadwal(nibName: "ViewControllerListJadwal", bundle: nil)
+        //        detailVC.idBioskop = selectedItem.bioskopId
+        //        navigationController?.pushViewController(detailVC, animated: true)
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -67,10 +79,10 @@ class ViewControllerListBioskop: UIViewController, UITableViewDelegate, UITableV
         if filteredBioskop.isEmpty {
             filtered = false
         }
-//        print(query + "----")
-//        if query == "" {
-//            filtered = false
-//        }
+        //        print(query + "----")
+        //        if query == "" {
+        //            filtered = false
+        //        }
         
         tableView.reloadData()
         filtered = false
@@ -119,14 +131,14 @@ class ViewControllerListBioskop: UIViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
         
         
-//        navigationController?.navigationBar
-//        tableView.delegate = self
-//        tableView.dataSource = self
+        //        navigationController?.navigationBar
+        //        tableView.delegate = self
+        //        tableView.dataSource = self
         
-            // Do any additional setup after loading the view.
-            self.tfSearch?.delegate = self
-            loadData()
-            
+        // Do any additional setup after loading the view.
+        self.tfSearch?.delegate = self
+        loadData()
+        
         
     }
 }
