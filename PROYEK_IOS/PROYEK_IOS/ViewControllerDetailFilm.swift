@@ -31,7 +31,7 @@ class ViewControllerDetailFilm: UIViewController {
     
     @IBAction func btnPlayingAt(_ sender: UIButton) {
         let playingAt = self.storyboard?.instantiateViewController(withIdentifier: "ViewControllerMovieListBioskop") as! ViewControllerMovieListBioskop
-        playingAt.nama_film = "MASUKIN JUDUL KE SINI"
+        playingAt.nama_film = (judul.text)!
         playingAt.movieID = idFilm
         self.navigationController?.pushViewController(playingAt, animated: true)
     }

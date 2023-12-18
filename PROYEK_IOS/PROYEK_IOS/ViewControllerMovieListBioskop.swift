@@ -83,6 +83,9 @@ class ViewControllerMovieListBioskop: UIViewController, UITableViewDelegate, UIT
     }
     @IBOutlet weak var judulMovie: UILabel!
     
+    @IBAction func btnRefresh(_ sender: UIButton) {
+        loadData(movieID)
+    }
     @IBOutlet weak var tfSearch: UITextField!
     @IBOutlet weak var btnLocationLabel: UIButton!
     
