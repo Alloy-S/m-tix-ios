@@ -37,7 +37,6 @@ class ViewControllerListBioskop: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "ViewControllerListJadwal") as! ViewControllerListJadwal
             let selectedItem = arBioskop[indexPath.row]
             vc.idBioskop = selectedItem.bioskopId

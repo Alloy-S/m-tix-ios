@@ -738,11 +738,11 @@
             </objects>
             <point key="canvasLocation" x="931" y="446"/>
         </scene>
-        <!--Item-->
+        <!--UpComing-->
         <scene sceneID="Zln-TI-0iV">
             <objects>
                 <navigationController id="9gg-gL-Qi6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="mUX-ks-7XN"/>
+                    <tabBarItem key="tabBarItem" title="UpComing" image="play.rectangle.on.rectangle" catalog="system" selectedImage="play.rectangle.on.rectangle" id="mUX-ks-7XN"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ePS-72-tD1">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -959,11 +959,11 @@
             </objects>
             <point key="canvasLocation" x="-256" y="446"/>
         </scene>
-        <!--Item-->
+        <!--Playing-->
         <scene sceneID="bRe-FM-bK2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OSF-Ju-bot" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="2y0-9z-pCx"/>
+                    <tabBarItem key="tabBarItem" title="Playing" image="play.rectangle.on.rectangle" catalog="system" selectedImage="play.rectangle" id="2y0-9z-pCx"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4MX-oB-ABl">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -2384,6 +2384,8 @@ AAAAAAAAAgEAAAAAAAAAaAAAAAAAAAAAAAAAAAAAufw
         <image name="location-dot-solid" width="12" height="16"/>
         <image name="m.circle.fill" catalog="system" width="128" height="123"/>
         <image name="menu" width="24" height="24"/>
+        <image name="play.rectangle" catalog="system" width="128" height="93"/>
+        <image name="play.rectangle.on.rectangle" catalog="system" width="128" height="98"/>
         <image name="xxi-removebg-preview" width="357" height="141"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
