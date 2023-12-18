@@ -55,8 +55,8 @@ class ViewControllerListJadwal2: UIViewController, UITableViewDelegate, UITableV
                         let jamTayangData = jamTayangDocument.data()
 
 
-                        if let rilis = movieData["rilis"] as? Bool {
-                            if rilis == false {
+                        if let status = movieData["status"] as? String {
+                            if (status ==  "UpComing") {
                                 print("masuk12")
                                 if let timestamp = jamTayangData["tanggalTayang"] as? Timestamp,
                                    let timestampRilis = movieData["tanggalRilis"] as? Timestamp {
@@ -148,8 +148,7 @@ class ViewControllerListJadwal2: UIViewController, UITableViewDelegate, UITableV
                                         }
                                     }
                                 }
-                            } else {
-                                // rilis == true
+                            } else if (status == "NowPlaying"){
                                 print("masuk13")
                                 if let timestamp = jamTayangData["tanggalTayang"] as? Timestamp {
                                     let date = timestamp.dateValue()

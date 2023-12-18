@@ -46,9 +46,7 @@ class ViewControllerDetailFilm: UIViewController {
                 print("Error getting documents: \(error)")
             } else {
                 for document in querySnapshot!.documents {
-                    
-                    // Access data from the document
-                    
+                
                     let idMovie = document.documentID
                     
                     if(idMovie == self.idFilm){
