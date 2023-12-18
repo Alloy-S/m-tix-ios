@@ -938,7 +938,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="GmB-He-YLm">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NowPlayingCollectionViewCell" id="GmB-He-YLm" customClass="NowPlayingCollectionViewCell" customModule="PROYEK_IOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="250"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hkY-xz-p8J">
@@ -984,6 +984,12 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="180" height="250"/>
+                                        <connections>
+                                            <outlet property="dimension" destination="n6f-Tm-EWa" id="xx5-fG-hA0"/>
+                                            <outlet property="imageMovie" destination="3eg-cz-yai" id="Och-Em-2pL"/>
+                                            <outlet property="rated" destination="STf-ZV-FdV" id="xor-v0-0iF"/>
+                                            <outlet property="title" destination="Wf2-yR-zyf" id="eSy-dl-WPj"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -1001,6 +1007,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fnr-fz-gln"/>
+                    <connections>
+                        <outlet property="collectionView" destination="dW2-8Z-5yX" id="a9U-pE-XYb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tKJ-t7-Le3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

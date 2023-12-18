@@ -32,6 +32,7 @@
 		B028882C2B2F4CBC005574A8 /* upComing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B028882B2B2F4CBC005574A8 /* upComing.swift */; };
 		B028882E2B2F4E1E005574A8 /* nowPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = B028882D2B2F4E1E005574A8 /* nowPlaying.swift */; };
 		B0912DF02B30224B00B81A51 /* UpComingMovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0912DEF2B30224B00B81A51 /* UpComingMovieCollectionViewCell.swift */; };
+		B0912DF22B30270D00B81A51 /* NowPlayingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0912DF12B30270D00B81A51 /* NowPlayingCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		B028882B2B2F4CBC005574A8 /* upComing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = upComing.swift; sourceTree = "<group>"; };
 		B028882D2B2F4E1E005574A8 /* nowPlaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nowPlaying.swift; sourceTree = "<group>"; };
 		B0912DEF2B30224B00B81A51 /* UpComingMovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingMovieCollectionViewCell.swift; sourceTree = "<group>"; };
+		B0912DF12B30270D00B81A51 /* NowPlayingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				49A7E3012B2F101500C68050 /* MovieListBioskopCell.swift */,
 				49A7E3032B2F245000C68050 /* TableViewCellListJadwal.swift */,
 				B028882B2B2F4CBC005574A8 /* upComing.swift */,
+				B0912DF12B30270D00B81A51 /* NowPlayingCollectionViewCell.swift */,
 				B028882D2B2F4E1E005574A8 /* nowPlaying.swift */,
 			);
 			path = PROYEK_IOS;
@@ -204,6 +207,7 @@
 			files = (
 				49ADA7DE2B2E0CD000495F64 /* ViewControllerListBioskop.swift in Sources */,
 				49A7E3002B2F0FEF00C68050 /* ViewControllerMovieListBioskop.swift in Sources */,
+				B0912DF22B30270D00B81A51 /* NowPlayingCollectionViewCell.swift in Sources */,
 				49ADA7E02B2E0D3000495F64 /* TableViewCellListBioskop.swift in Sources */,
 				496F943F2B2CA36C007AA0A7 /* ViewController.swift in Sources */,
 				49A7E3042B2F245000C68050 /* TableViewCellListJadwal.swift in Sources */,
