@@ -68,6 +68,7 @@ class ViewControllerListKota: UIViewController, UITableViewDelegate, UITableView
                         self.arKota.append(kota)
                     }
                 }
+                self.arKota.sort(by: {$0.nama < $1.nama})
                 self.tableView.reloadData()
             }
         }
