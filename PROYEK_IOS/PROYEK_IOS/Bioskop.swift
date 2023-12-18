@@ -12,6 +12,7 @@ struct Bioskop: Decodable, Encodable {
     let alamat: String
     let nama: String
     let telp: String
+    let kota: String
     let movieId: [String]
 }
 

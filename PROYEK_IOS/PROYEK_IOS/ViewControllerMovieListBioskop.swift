@@ -110,10 +110,11 @@ class ViewControllerMovieListBioskop: UIViewController, UITableViewDelegate, UIT
                     if let bioskopId = document.documentID as? String, let nama = readData["nama"] as? String,
                        let alamat = readData["alamat"] as? String,
                        let telp = readData["telp"] as? String,
+                       let kota = readData["kota"] as? String,
                        let movieId = readData["movieId"] as? [String] {
                         for item in movieId {
                             if item == movieID {
-                                let bioskop = Bioskop(bioskopId: bioskopId, alamat: alamat, nama: nama, telp: telp, movieId: movieId)
+                                let bioskop = Bioskop(bioskopId: bioskopId, alamat: alamat, nama: nama, telp: telp, kota: kota, movieId: movieId)
                                 self.arBioskop.append(bioskop)
                                 break
                             }
