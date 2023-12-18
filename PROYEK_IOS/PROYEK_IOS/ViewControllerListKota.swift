@@ -1,6 +1,9 @@
 import UIKit
 import FirebaseFirestore
 
+protocol sendCity {
+    func relaodCity(kota : String)
+}
 class ViewControllerListKota: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate  {
     
     @IBOutlet weak var tableView: UITableView!
@@ -24,16 +27,29 @@ class ViewControllerListKota: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ViewControllerListBioskop") as! ViewControllerListBioskop
-        let selectedItem = arKota[indexPath.row]
-        vc.idKota = selectedItem.nama
-        self.navigationController?.pushViewController(vc, animated: true)
+        if mode == 0 {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "ViewControllerListBioskop") as! ViewControllerListBioskop
+            let selectedItem = arKota[indexPath.row]
+            vc.idKota = selectedItem.nama
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "ViewControllerMovieListBioskop") as! ViewControllerMovieListBioskop
+            let selectedItem = arKota[indexPath.row]
+            vc.idKota = selectedItem.nama
+            vc.nama_film = namaMovie
+            vc.movieID = movieID
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
     
     
     let db = Firestore.firestore()
     
     var kotaID = ""
+    var movieID = ""
+    var mode = 0
+    var namaMovie = ""
     var arKota: [Kota] = []
     
     func loadData() {

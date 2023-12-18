@@ -28,8 +28,12 @@ class ViewControllerListBioskop: UIViewController, UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellListBioskop", for: indexPath) as! TableViewCellListBioskop
         
         if filtered {
+            print("filtered")
+            print(filteredBioskop[indexPath.row])
             cell.namaBioskop.text = filteredBioskop[indexPath.row].nama
         } else {
+            print("origin")
+            print(arBioskopCity[indexPath.row])
             cell.namaBioskop.text = arBioskopCity[indexPath.row].nama
         }
         cityButton.setTitle(idKota, for: .normal)
@@ -38,7 +42,15 @@ class ViewControllerListBioskop: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "ViewControllerListJadwal") as! ViewControllerListJadwal
-            let selectedItem = arBioskop[indexPath.row]
+            
+            var selectedItem = Bioskop(bioskopId: "", alamat: "", nama: "", telp: "", kota: "", movieId: [])
+        
+            if filtered {
+                selectedItem = filteredBioskop[indexPath.row]
+            } else {
+                selectedItem = arBioskopCity[indexPath.row]
+            }
+            
             vc.idBioskop = selectedItem.bioskopId
             self.navigationController?.pushViewController(vc, animated: true)
         }
@@ -66,13 +78,14 @@ class ViewControllerListBioskop: UIViewController, UITableViewDelegate, UITableV
                         
                         let bioskop = Bioskop(bioskopId: bioskopId, alamat: alamat, nama: nama, telp: telp, kota: kota, movieId: movieId)
                         
-                        self.arBioskop.append(bioskop)
+//                        self.arBioskop.append(bioskop)
                         
                         if kota == self.idKota {
                             self.arBioskopCity.append(bioskop)
                         }
                     }
                 }
+                self.arBioskopCity.sort(by: {$0.nama < $1.nama})
                 self.tableView.reloadData()
             }
         }
@@ -94,17 +107,20 @@ class ViewControllerListBioskop: UIViewController, UITableViewDelegate, UITableV
                 filtered = true
             }
         }
+        print(query)
+        print(filteredBioskop)
         
         if filteredBioskop.isEmpty {
             filtered = false
         }
         
         tableView.reloadData()
-        filtered = false
+//        filtered = false
     }
     
     @IBAction func btnKota(_ sender: Any) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "ViewControllerListKota") as! ViewControllerListKota
+        vc.mode = 0
         self.navigationController?.pushViewController(vc, animated: true)
     
     }

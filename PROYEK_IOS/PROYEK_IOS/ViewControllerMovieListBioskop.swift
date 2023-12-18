@@ -33,9 +33,16 @@ class ViewControllerMovieListBioskop: UIViewController, UITableViewDelegate, UIT
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "ViewControllerListJadwal2") as! ViewControllerListJadwal2
-        var selectedItem = arBioskop[indexPath.row]
+        var selectedItem = Bioskop(bioskopId: "", alamat: "", nama: "", telp: "", kota: "", movieId: [])
+        
+        if filtered {
+            selectedItem = filteredBioskop[indexPath.row]
+        } else {
+            selectedItem = arBioskop[indexPath.row]
+        }
         vc.idBioskop = selectedItem.bioskopId
         vc.idMovieFix = self.movieID
+        
 //        print("pass id bioskop : \(selectedItem.bioskopId)")
 //        print("pass id movie : \(self.movieID)")
         self.navigationController?.pushViewController(vc, animated: true)
@@ -80,6 +87,11 @@ class ViewControllerMovieListBioskop: UIViewController, UITableViewDelegate, UIT
     var filteredBioskop : [Bioskop] = []
 
     @IBAction func BtnLocation(_ sender: UIButton) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ViewControllerListKota") as! ViewControllerListKota
+        vc.mode = 1
+        vc.namaMovie = nama_film
+        vc.movieID = movieID
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBOutlet weak var judulMovie: UILabel!
     
@@ -93,6 +105,7 @@ class ViewControllerMovieListBioskop: UIViewController, UITableViewDelegate, UIT
     
     var movieID = ""
     var nama_film = ""
+    var idKota = "SURABAYA"
     
     func loadData(_ movieID: String) {
         db.collection("Bioskop").getDocuments() { (querySnapshot, err)
@@ -113,7 +126,7 @@ class ViewControllerMovieListBioskop: UIViewController, UITableViewDelegate, UIT
                        let kota = readData["kota"] as? String,
                        let movieId = readData["movieId"] as? [String] {
                         for item in movieId {
-                            if item == movieID {
+                            if item == movieID && kota == self.idKota {
                                 let bioskop = Bioskop(bioskopId: bioskopId, alamat: alamat, nama: nama, telp: telp, kota: kota, movieId: movieId)
                                 self.arBioskop.append(bioskop)
                                 break
@@ -131,6 +144,9 @@ class ViewControllerMovieListBioskop: UIViewController, UITableViewDelegate, UIT
         
         tfSearch?.delegate = self
         judulMovie.text = nama_film
+        btnLocationLabel.setTitle(idKota, for: .normal)
+        print(idKota)
+        print(nama_film)
         loadData(movieID)
         // Do any additional setup after loading the view.
     }
