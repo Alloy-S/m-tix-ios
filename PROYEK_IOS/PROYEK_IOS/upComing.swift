@@ -38,7 +38,7 @@ class upComing: UIViewController, UICollectionViewDataSource, UICollectionViewDe
         let movie = moviesItem[indexPath.item]
 
         // Setel data ke dalam sel
-        cell.movieImage.image = UIImage(named: movie.gambarFilm)
+        cell.imageMovie.image = UIImage(named: movie.gambarFilm)
         cell.title.text = movie.judulFilm
         cell.dimension.text = movie.dimensi
         cell.rated.text = movie.rated

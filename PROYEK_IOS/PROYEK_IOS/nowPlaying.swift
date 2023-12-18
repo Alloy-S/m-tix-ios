@@ -33,12 +33,12 @@ class nowPlaying: UIViewController, UICollectionViewDataSource, UICollectionView
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UpComingMovieCollectionViewCell", for: indexPath) as! UpComingMovieCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NowPlayingCollectionViewCell", for: indexPath) as! NowPlayingCollectionViewCell
 
         let movie = moviesItem[indexPath.item]
 
         // Setel data ke dalam sel
-        cell.movieImage.image = UIImage(named: movie.gambarFilm)
+        cell.imageMovie.image = UIImage(named: movie.gambarFilm)
         cell.title.text = movie.judulFilm
         cell.dimension.text = movie.dimensi
         cell.rated.text = movie.rated
