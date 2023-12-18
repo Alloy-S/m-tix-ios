@@ -118,11 +118,9 @@ class ViewControllerMovieListBioskop: UIViewController, UITableViewDelegate, UIT
                                 break
                             }
                         }
-                            
-                        
-                        
                     }
                 }
+                self.arBioskop.sort(by: {$0.nama < $1.nama})
                 self.tableView.reloadData()
             }
         }

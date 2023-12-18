@@ -106,6 +106,7 @@ class ViewControllerListBioskop: UIViewController, UITableViewDelegate, UITableV
                         self.arBioskop.append(bioskop)
                     }
                 }
+                self.arBioskop.sort(by: {$0.nama < $1.nama})
                 self.tableView.reloadData()
             }
         }
