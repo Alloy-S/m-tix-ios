@@ -1162,7 +1162,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Qu7-hT-gpR">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UpComingMovieCollectionViewCell" id="Qu7-hT-gpR" customClass="UpComingMovieCollectionViewCell" customModule="PROYEK_IOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="250"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="2zP-qT-zcD">
@@ -1208,6 +1208,12 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="180" height="250"/>
+                                        <connections>
+                                            <outlet property="dimension" destination="oya-TH-VPi" id="dfa-Ol-0bS"/>
+                                            <outlet property="imageMovie" destination="1Oy-up-nn2" id="pGw-9u-aYm"/>
+                                            <outlet property="rated" destination="Gwb-K3-9Ml" id="xE2-ff-om5"/>
+                                            <outlet property="title" destination="OSc-W8-2hD" id="IEt-Cr-bOR"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -1225,6 +1231,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bmE-bQ-rsQ"/>
+                    <connections>
+                        <outlet property="collectionView" destination="TjK-yR-TyR" id="oRM-Hi-Jfm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VHS-3g-JWk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
