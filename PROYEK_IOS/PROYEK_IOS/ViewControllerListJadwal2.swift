@@ -160,7 +160,7 @@ class ViewControllerListJadwal2: UIViewController, UITableViewDelegate, UITableV
     
     // buat atur tinggi masing2 cell
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 330.0
+        return 500.0
     }
     
     
