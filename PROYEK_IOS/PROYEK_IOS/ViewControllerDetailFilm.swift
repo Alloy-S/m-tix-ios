@@ -48,6 +48,10 @@ class ViewControllerDetailFilm: UIViewController {
         cast.numberOfLines = 0
         cast.lineBreakMode = .byWordWrapping
         
+        judul.font = UIFont.boldSystemFont(ofSize: 20.0)
+    
+
+        
         db = Firestore.firestore()
         db.collection("Movie").getDocuments { (querySnapshot, error) in
             if let error = error {

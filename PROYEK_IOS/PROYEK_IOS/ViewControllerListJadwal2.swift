@@ -39,6 +39,8 @@ class ViewControllerListJadwal2: UIViewController, UITableViewDelegate, UITableV
         
         cell.namaFilm.numberOfLines = 0
         cell.namaFilm.lineBreakMode = .byWordWrapping
+        cell.namaFilm.font = UIFont.boldSystemFont(ofSize: 20.0)
+
         
         db.collection("Movie").document(idMovieFix).getDocument { (movieDocument, movieError) in
             guard let movieDocument = movieDocument, movieDocument.exists, let movieData = movieDocument.data() else {
