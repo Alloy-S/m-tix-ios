@@ -16,7 +16,7 @@ class ViewControllerListJadwal: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var alamatBioskop: UILabel!
     @IBOutlet weak var namaBioskop: UILabel!
     
-//    var idBioskop = "rtAY13M2eVEWdgNJyOCp"
+    //    var idBioskop = "rtAY13M2eVEWdgNJyOCp"
     var idBioskop :String = ""
     var listIdFilm: [String] = []
     var listJam: [String] = []
@@ -34,134 +34,221 @@ class ViewControllerListJadwal: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellJadwal1")! as! TableViewCellListJadwal
-        //        print("masukk")
-        
+
         let idFilmIndex = indexPath.row
         let idFilm = self.listIdFilm[idFilmIndex]
-        if idFilmIndex < self.listIdFilm.count {
-            //            print("halo1")
-            db.collection("JamTayang")
-                .whereField("bioskopId", isEqualTo: idBioskop)
+
+        guard idFilmIndex < self.listIdFilm.count else {
+            return cell
+        }
+
+        db.collection("Movie").document(idFilm).getDocument { (movieDocument, movieError) in
+            guard let movieDocument = movieDocument, movieDocument.exists, let movieData = movieDocument.data() else {
+                print("Error getting Movie document: \(String(describing: movieError))")
+                return
+            }
+
+            print("ID FILM KAK : \(idFilm)")
+            print("Doc id KAK : \(movieDocument.documentID)")
+
+            self.db.collection("JamTayang")
+                .whereField("bioskopId", isEqualTo: self.idBioskop)
                 .whereField("movieId", isEqualTo: idFilm)
-                .getDocuments { (querySnapshot, error) in
-                    if let error = error {
-                        print("Error getting documents: \(error)")
-                    } else {
-                        //                        print("halo2")
-                        for document in querySnapshot!.documents {
-                            let data = document.data()
-                            
-                            print("idjamtayang : \(document.documentID)")
-                            //                            print("halo3")
-                            let timestamp = data["tanggalTayang"]
-                            print(type(of: timestamp))
-                            if let timestamp = data["tanggalTayang"] as? Timestamp {
+                .getDocuments { (jamTayangSnapshot, jamTayangError) in
+                    guard let jamTayangDocuments = jamTayangSnapshot?.documents, jamTayangError == nil else {
+                        print("Error getting JamTayang documents: \(String(describing: jamTayangError))")
+                        return
+                    }
 
-                                let date = timestamp.dateValue()
-                                //                                print("Date: \(date)")
+                    if let jamTayangDocument = jamTayangDocuments.first {
+                        let jamTayangData = jamTayangDocument.data()
 
-                                //tanggal hari ini
-                                let calendar = Calendar.current
-                                if calendar.isDate(date, inSameDayAs: self.todayTimestamp.dateValue()) {
-                                    if let harga = data["harga"] as? Int {
-                                        let formattedHarga = self.formatHarga(harga)
-                                        cell.hargaFilm.text = formattedHarga
-                                    } else if let harga = data["harga"] as? NSNumber {
-                                        let formattedHarga = self.formatHarga(harga.intValue)
-                                        cell.hargaFilm.text = formattedHarga
-                                    } else {
-                                        cell.hargaFilm.text = "N/A"
-                                    }
-                                    let dateFormatter = DateFormatter()
-                                    dateFormatter.dateFormat = "dd-MM-yyyy" // Corrected date format
+                        print("movieId: \(idFilm)")
+                        print("idjamtayang : \(jamTayangDocument.documentID)")
 
-                                    cell.tanggalFilm.text = dateFormatter.string(from: date)
+                        if let rilis = movieData["rilis"] as? Bool {
+                            if rilis == false {
+                                print("masuk12")
+                                if let timestamp = jamTayangData["tanggalTayang"] as? Timestamp,
+                                   let timestampRilis = movieData["tanggalRilis"] as? Timestamp {
+                                    let dateTayang = timestamp.dateValue()
 
-                                    if let jam = data["jamTayang"] as? [String] {
-                                        self.listJam.append(contentsOf: jam)
-                                        self.tableFilm.reloadData()
+                                    let calendar = Calendar.current
+                                    if calendar.isDate(dateTayang, inSameDayAs: timestampRilis.dateValue()) {
+                                        if let harga = jamTayangData["harga"] as? Int {
+                                            let formattedHarga = self.formatHarga(harga)
+                                            cell.hargaFilm.text = formattedHarga
+                                        } else if let harga = jamTayangData["harga"] as? NSNumber {
+                                            let formattedHarga = self.formatHarga(harga.intValue)
+                                            cell.hargaFilm.text = formattedHarga
+                                        } else {
+                                            cell.hargaFilm.text = "N/A"
+                                        }
+                                        let dateFormatter = DateFormatter()
+                                        dateFormatter.dateFormat = "dd-MM-yyyy"
 
-                                        //Tampilan untuk jam tayang
-                                        cell.jamFilm.subviews.forEach { $0.removeFromSuperview() }
+                                        cell.tanggalFilm.text = dateFormatter.string(from: dateTayang)
 
-                                        var xOffset: CGFloat = 0
-                                        var yOffset: CGFloat = 0
-                                        let labelHeight: CGFloat = 30
-                                        let labelSpacing: CGFloat = 5
+                                        if let jam = jamTayangData["jamTayang"] as? [String] {
+                                            self.listJam.append(contentsOf: jam)
 
-                                        for timeSlot in self.listJam {
-                                            let label = UILabel()
-                                            label.text = timeSlot
-                                            label.textAlignment = .center
-                                            label.backgroundColor = UIColor.lightGray
-                                            label.textColor = UIColor.white
-                                            label.layer.cornerRadius = labelHeight / 2
-                                            label.clipsToBounds = true
+                                            // Tampilan untuk jam tayang
+                                            cell.jamFilm.subviews.forEach { $0.removeFromSuperview() }
 
-                                            let labelWidth = (timeSlot as NSString).size(withAttributes: [NSAttributedString.Key.font: label.font!]).width + 20
-                                            if xOffset + labelWidth > tableView.bounds.width - 20{
-                                                xOffset = 0
-                                                yOffset += labelHeight + labelSpacing
+                                            var xOffset: CGFloat = 0
+                                            var yOffset: CGFloat = 0
+                                            let labelHeight: CGFloat = 30
+                                            let labelSpacing: CGFloat = 5
+
+                                            for timeSlot in self.listJam {
+                                                let label = UILabel()
+                                                label.text = timeSlot
+                                                label.textAlignment = .center
+                                                label.backgroundColor = UIColor.lightGray
+                                                label.textColor = UIColor.white
+                                                label.layer.cornerRadius = labelHeight / 2
+                                                label.clipsToBounds = true
+                                                label.numberOfLines = 0 // Allow multiple lines
+
+                                                let labelWidth = (timeSlot as NSString).size(withAttributes: [NSAttributedString.Key.font: label.font!]).width + 20
+                                                if xOffset + labelWidth > tableView.bounds.width - 20 {
+                                                    xOffset = 0
+                                                    yOffset += labelHeight + labelSpacing
+                                                }
+
+                                                label.frame = CGRect(x: xOffset, y: yOffset, width: labelWidth, height: labelHeight)
+                                                xOffset += labelWidth + labelSpacing
+
+                                                cell.jamFilm.addSubview(label)
                                             }
 
-                                            label.frame = CGRect(x: xOffset, y: yOffset, width: labelWidth, height: labelHeight)
-                                            xOffset += labelWidth + labelSpacing
-
-                                            cell.jamFilm.addSubview(label)
+                                            // Adjust the height of jamFilm to accommodate the labels
+                                            cell.jamFilm.frame.size.height = yOffset + labelHeight
+                                            cell.jamFilm.layoutIfNeeded()
 
 
                                         }
 
                                         self.listJam = []
-                                        // Adjust the height of jamFilm to accommodate the labels
-                                        cell.jamFilm.frame.size.height = yOffset + labelHeight
-                                        cell.jamFilm.layoutIfNeeded()
-                                    }
 
+                                        cell.jamFilm.frame.size.height = 0
 
-                                    let idFilm = self.listIdFilm[idFilmIndex]
+                                        let idFilm = self.listIdFilm[idFilmIndex]
 
-                                    self.db.collection("Movie").document(idFilm).getDocument { (document, error) in
-                                        if let error = error {
-                                            print("Error getting document: \(error)")
-                                        } else if let document = document, document.exists {
-                                            let data = document.data()
+                                        self.db.collection("Movie").document(idFilm).getDocument { (document, error) in
+                                            guard let document = document, document.exists, let data = document.data() else {
+                                                print("Error getting document: \(String(describing: error))")
+                                                return
+                                            }
 
-                                            cell.namaFilm.text = data!["nama"] as? String ?? ""
-                                            cell.dimensiFilm.text = data!["dimensi"] as? String ?? ""
+                                            cell.namaFilm.text = data["nama"] as? String ?? ""
+                                            cell.dimensiFilm.text = data["dimensi"] as? String ?? ""
 
-                                            if let durasi = data!["durasi"] as? Int {
-                                                cell.durasiFilm.text = String(durasi)
-                                            } else if let durasi = data!["durasi"] as? NSNumber {
+                                            if let durasi = data["durasi"] as? Int {
+                                                cell.durasiFilm.text = String(durasi) + " minutes"
+                                            } else if let durasi = data["durasi"] as? NSNumber {
                                                 cell.durasiFilm.text = durasi.isEqual(to: durasi.intValue as NSNumber) ? "\(durasi.intValue)" : "\(durasi.doubleValue)"
                                             } else {
                                                 cell.durasiFilm.text = "N/A"
                                             }
 
-                                            cell.ratingFilm.text = data!["rate"] as? String ?? ""
-
+                                            cell.ratingFilm.text = data["rate"] as? String ?? ""
                                         }
                                     }
-
-                                } else {
-                                    // The dates are different
                                 }
+                            } else {
+                                // rilis == true
+                                print("masuk13")
+                                if let timestamp = jamTayangData["tanggalTayang"] as? Timestamp {
+                                    let date = timestamp.dateValue()
+                                    let calendar = Calendar.current
+                                    if calendar.isDate(date, inSameDayAs: self.todayTimestamp.dateValue()) {
+                                        if let harga = jamTayangData["harga"] as? Int {
+                                            let formattedHarga = self.formatHarga(harga)
+                                            cell.hargaFilm.text = formattedHarga
+                                        } else if let harga = jamTayangData["harga"] as? NSNumber {
+                                            let formattedHarga = self.formatHarga(harga.intValue)
+                                            cell.hargaFilm.text = formattedHarga
+                                        } else {
+                                            cell.hargaFilm.text = "N/A"
+                                        }
+                                        let dateFormatter = DateFormatter()
+                                        dateFormatter.dateFormat = "dd-MM-yyyy" // Corrected date format
 
-                                
+                                        cell.tanggalFilm.text = dateFormatter.string(from: date)
+
+                                        if let jam = jamTayangData["jamTayang"] as? [String] {
+                                            self.listJam.append(contentsOf: jam)
+//                                            self.tableFilm.reloadData()
+
+                                            // Tampilan untuk jam tayang
+                                            cell.jamFilm.subviews.forEach { $0.removeFromSuperview() }
+
+                                            var xOffset: CGFloat = 0
+                                            var yOffset: CGFloat = 0
+                                            let labelHeight: CGFloat = 30
+                                            let labelSpacing: CGFloat = 5
+
+                                            for timeSlot in self.listJam {
+                                                let label = UILabel()
+                                                label.text = timeSlot
+                                                label.textAlignment = .center
+                                                label.backgroundColor = UIColor.lightGray
+                                                label.textColor = UIColor.white
+                                                label.layer.cornerRadius = labelHeight / 2
+                                                label.clipsToBounds = true
+
+                                                let labelWidth = (timeSlot as NSString).size(withAttributes: [NSAttributedString.Key.font: label.font!]).width + 20
+                                                if xOffset + labelWidth > tableView.bounds.width - 20 {
+                                                    xOffset = 0
+                                                    yOffset += labelHeight + labelSpacing
+                                                }
+
+                                                label.frame = CGRect(x: xOffset, y: yOffset, width: labelWidth, height: labelHeight)
+                                                xOffset += labelWidth + labelSpacing
+
+                                                cell.jamFilm.addSubview(label)
+                                            }
+
+                                            self.listJam = []
+                                            // Adjust the height of jamFilm to accommodate the labels
+                                            cell.jamFilm.frame.size.height = yOffset + labelHeight
+                                            cell.jamFilm.layoutIfNeeded()
+                                        }
+
+                                        let idFilm = self.listIdFilm[idFilmIndex]
+
+                                        self.db.collection("Movie").document(idFilm).getDocument { (document, error) in
+                                            guard let document = document, document.exists, let data = document.data() else {
+                                                print("Error getting document: \(String(describing: error))")
+                                                return
+                                            }
+
+                                            cell.namaFilm.text = data["nama"] as? String ?? ""
+                                            cell.dimensiFilm.text = data["dimensi"] as? String ?? ""
+
+                                            if let durasi = data["durasi"] as? Int {
+                                                cell.durasiFilm.text = String(durasi) + " minutes"
+                                            } else if let durasi = data["durasi"] as? NSNumber {
+                                                cell.durasiFilm.text = durasi.isEqual(to: durasi.intValue as NSNumber) ? "\(durasi.intValue)" : "\(durasi.doubleValue)"
+                                            } else {
+                                                cell.durasiFilm.text = "N/A"
+                                            }
+
+                                            cell.ratingFilm.text = data["rate"] as? String ?? ""
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
                 }
         }
-        
-        
-        
-        
+
         return cell
     }
-    
-    
-    
+
+
     
     
     // buat atur tinggi masing2 cell
@@ -174,7 +261,7 @@ class ViewControllerListJadwal: UIViewController, UITableViewDelegate, UITableVi
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         formatter.locale = Locale(identifier: "id_ID") // Set the locale to Indonesian
-
+        
         if let formattedAmount = formatter.string(from: NSNumber(value: amount)) {
             return formattedAmount
         } else {
@@ -208,7 +295,6 @@ class ViewControllerListJadwal: UIViewController, UITableViewDelegate, UITableVi
                         //                        print("tes \(data["movieId"] ?? "No movieId found")")
                         if let movieIds = data["movieId"] as? [String] {
                             for movieId in movieIds {
-                                print("movieId: \(movieId)")
                                 self.listIdFilm.append(movieId)
                                 self.tableFilm.reloadData()
                             }

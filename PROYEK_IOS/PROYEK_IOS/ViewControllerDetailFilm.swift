@@ -55,7 +55,7 @@ class ViewControllerDetailFilm: UIViewController {
                         print(data["nama"] as? String ?? "")
                         self.judul.text = data["nama"] as? String ?? ""
                         if let durasi = data["durasi"] as? Int {
-                            self.durasi.text = String(durasi)
+                            self.durasi.text = String(durasi)  + " minutes"
                         } else if let durasi = data["durasi"] as? NSNumber {
                             self.durasi.text = durasi.isEqual(to: durasi.intValue as NSNumber) ? "\(durasi.intValue)" : "\(durasi.doubleValue)"
                         } else {
