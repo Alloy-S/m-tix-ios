@@ -36,8 +36,8 @@ class ViewControllerMovieListBioskop: UIViewController, UITableViewDelegate, UIT
         var selectedItem = arBioskop[indexPath.row]
         vc.idBioskop = selectedItem.bioskopId
         vc.idMovieFix = self.movieID
-        print("pass id bioskop : \(selectedItem.bioskopId)")
-        print("pass id movie : \(self.movieID)")
+//        print("pass id bioskop : \(selectedItem.bioskopId)")
+//        print("pass id movie : \(self.movieID)")
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

@@ -449,7 +449,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gRW-Mc-rMx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5202" y="1362"/>
+            <point key="canvasLocation" x="-3196" y="1206"/>
         </scene>
         <!--View Controller List Bioskop-->
         <scene sceneID="Jfl-b1-HP3">
@@ -1015,6 +1015,10 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="h9p-19-Wul" id="w01-Yy-CbI"/>
+                                    <outlet property="delegate" destination="h9p-19-Wul" id="Q2h-AA-DON"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ny0-YF-Yp9"/>

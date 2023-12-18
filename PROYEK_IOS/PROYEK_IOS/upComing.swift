@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import FirebaseFirestore
 
-class upComing: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class upComing: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     var moviesItem: [Movie] = []
     let db = Firestore.firestore()
@@ -35,13 +35,14 @@ class upComing: UIViewController, UICollectionViewDataSource, UICollectionViewDe
                 self.moviesItem.removeAll()
                 for document in querySnapshot!.documents {
                     let readData = document.data()
+                    let idFilm = document.documentID
                     if let image = readData["image"] as? String,
                        let nama = readData["nama"] as? String,
                        let rate = readData["rate"] as? String,
                        let dimensi = readData["dimensi"] as? String,
                        let status = readData["status"] as? String,
                        let durasi = readData["durasi"] as? Int {
-                        let movie = Movie(image: image, nama: nama, dimensi: dimensi, rate: rate, status: status, durasi: durasi)
+                        let movie = Movie(id : idFilm,image: image, nama: nama, dimensi: dimensi, rate: rate, status: status, durasi: durasi)
                         if status == "UpComing" {
                             self.moviesItem.append(movie)
                         }
@@ -53,6 +54,13 @@ class upComing: UIViewController, UICollectionViewDataSource, UICollectionViewDe
         }
         // Filter hanya film dengan status "nowPlaying"
 //        moviesItem = movies.filter { $0.status == "upComing" }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ViewControllerDetailFilm") as! ViewControllerDetailFilm
+        let selectedItem = moviesItem[indexPath.row]
+        vc.idFilm = selectedItem.id
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

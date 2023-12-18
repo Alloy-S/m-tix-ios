@@ -26,7 +26,7 @@ class ViewControllerDetailFilm: UIViewController {
     @IBOutlet weak var sinopsis: UILabel!
     @IBOutlet weak var rating: UILabel!
     //    var idFilm : String = ""
-    var idFilm : String = "lsaFIZONK1QSfUD9bldh"
+    var idFilm : String = ""
     var db: Firestore!
     
     

@@ -8,6 +8,7 @@
 import Foundation
 
 struct Movie: Codable {
+    var id: String
     var image: String
     var nama: String
     var dimensi: String
