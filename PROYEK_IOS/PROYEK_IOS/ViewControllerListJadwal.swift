@@ -34,6 +34,10 @@ class ViewControllerListJadwal: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellJadwal1")! as! TableViewCellListJadwal
+        
+        cell.namaFilm.numberOfLines = 0
+        cell.namaFilm.lineBreakMode = .byWordWrapping
+        
         let idFilmIndex = indexPath.row
         let idFilm = self.listIdFilm[idFilmIndex]
         guard idFilmIndex < self.listIdFilm.count else {

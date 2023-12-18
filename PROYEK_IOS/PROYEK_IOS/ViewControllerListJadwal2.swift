@@ -37,6 +37,9 @@ class ViewControllerListJadwal2: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellJadwal2")! as! TableViewCellListJadwal2
         
+        cell.namaFilm.numberOfLines = 0
+        cell.namaFilm.lineBreakMode = .byWordWrapping
+        
         db.collection("Movie").document(idMovieFix).getDocument { (movieDocument, movieError) in
             guard let movieDocument = movieDocument, movieDocument.exists, let movieData = movieDocument.data() else {
                 print("Error getting Movie document: \(String(describing: movieError))")

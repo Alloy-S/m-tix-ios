@@ -39,6 +39,15 @@ class ViewControllerDetailFilm: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        sinopsis.numberOfLines = 0
+        sinopsis.lineBreakMode = .byWordWrapping
+        
+        producer.numberOfLines = 0
+        producer.lineBreakMode = .byWordWrapping
+        
+        cast.numberOfLines = 0
+        cast.lineBreakMode = .byWordWrapping
+        
         db = Firestore.firestore()
         db.collection("Movie").getDocuments { (querySnapshot, error) in
             if let error = error {
