@@ -9,22 +9,21 @@ import UIKit
 import FirebaseFirestore
 
 class ViewControllerDetailFilm: UIViewController {
-
+    
     
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var judul: UILabel!
-    
     @IBOutlet weak var genre: UILabel!
-    
     @IBOutlet weak var durasi: UILabel!
-    
-    @IBOutlet weak var cast: UILabel!
-    @IBOutlet weak var distributor: UILabel!
-    @IBOutlet weak var writer: UILabel!
-    @IBOutlet weak var director: UILabel!
-    @IBOutlet weak var producer: UILabel!
-    @IBOutlet weak var sinopsis: UILabel!
     @IBOutlet weak var rating: UILabel!
+    
+    @IBOutlet weak var sinopsis: UILabel!
+    @IBOutlet weak var producer: UILabel!
+    @IBOutlet weak var director: UILabel!
+    @IBOutlet weak var writer: UILabel!
+    @IBOutlet weak var distributor: UILabel!
+    @IBOutlet weak var cast: UILabel!
+
     //    var idFilm : String = ""
     var idFilm : String = ""
     var db: Firestore!
