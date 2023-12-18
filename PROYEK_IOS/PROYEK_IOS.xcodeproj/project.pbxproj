@@ -18,6 +18,7 @@
 		496F94542B2CA5B7007AA0A7 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 496F94532B2CA5B7007AA0A7 /* FirebaseFirestore */; };
 		496F94562B2CA5B7007AA0A7 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 496F94552B2CA5B7007AA0A7 /* FirebaseFirestoreSwift */; };
 		496F94582B2CA5B7007AA0A7 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 496F94572B2CA5B7007AA0A7 /* FirebaseStorage */; };
+		49A273882B303C2900EBF950 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A273872B303C2900EBF950 /* Movie.swift */; };
 		49A7E2FE2B2EEB9E00C68050 /* Bioskop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A7E2FD2B2EEB9E00C68050 /* Bioskop.swift */; };
 		49A7E3002B2F0FEF00C68050 /* ViewControllerMovieListBioskop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A7E2FF2B2F0FEF00C68050 /* ViewControllerMovieListBioskop.swift */; };
 		49A7E3022B2F101500C68050 /* MovieListBioskopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A7E3012B2F101500C68050 /* MovieListBioskopCell.swift */; };
@@ -45,6 +46,7 @@
 		496F94462B2CA36E007AA0A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		496F94482B2CA36E007AA0A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		496F944E2B2CA495007AA0A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		49A273872B303C2900EBF950 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		49A7E2FD2B2EEB9E00C68050 /* Bioskop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bioskop.swift; sourceTree = "<group>"; };
 		49A7E2FF2B2F0FEF00C68050 /* ViewControllerMovieListBioskop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerMovieListBioskop.swift; sourceTree = "<group>"; };
 		49A7E3012B2F101500C68050 /* MovieListBioskopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListBioskopCell.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				B028882B2B2F4CBC005574A8 /* upComing.swift */,
 				B0912DF12B30270D00B81A51 /* NowPlayingCollectionViewCell.swift */,
 				B028882D2B2F4E1E005574A8 /* nowPlaying.swift */,
+				49A273872B303C2900EBF950 /* Movie.swift */,
 			);
 			path = PROYEK_IOS;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 			files = (
 				49ADA7DE2B2E0CD000495F64 /* ViewControllerListBioskop.swift in Sources */,
 				49A7E3002B2F0FEF00C68050 /* ViewControllerMovieListBioskop.swift in Sources */,
+				49A273882B303C2900EBF950 /* Movie.swift in Sources */,
 				B0912DF22B30270D00B81A51 /* NowPlayingCollectionViewCell.swift in Sources */,
 				49ADA7E02B2E0D3000495F64 /* TableViewCellListBioskop.swift in Sources */,
 				496F943F2B2CA36C007AA0A7 /* ViewController.swift in Sources */,
