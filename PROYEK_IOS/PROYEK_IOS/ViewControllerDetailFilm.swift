@@ -48,7 +48,7 @@ class ViewControllerDetailFilm: UIViewController {
         cast.numberOfLines = 0
         cast.lineBreakMode = .byWordWrapping
         
-        judul.font = UIFont.boldSystemFont(ofSize: 20.0)
+        judul.font = UIFont.boldSystemFont(ofSize: 17.0)
         judul.numberOfLines = 0
         judul.lineBreakMode = .byWordWrapping
     
