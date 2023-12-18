@@ -37,6 +37,8 @@ class ViewControllerListJadwal: UIViewController, UITableViewDelegate, UITableVi
         
         cell.namaFilm.numberOfLines = 0
         cell.namaFilm.lineBreakMode = .byWordWrapping
+        cell.namaFilm.font = UIFont.boldSystemFont(ofSize: 20.0)
+
         
         let idFilmIndex = indexPath.row
         let idFilm = self.listIdFilm[idFilmIndex]
