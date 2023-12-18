@@ -9,6 +9,7 @@ import UIKit
 
 class TableViewCellListJadwal2: UITableViewCell {
 
+    @IBOutlet weak var imageFilm: UIImageView!
     @IBOutlet weak var jamFilm: UILabel!
     @IBOutlet weak var hargaFilm: UILabel!
     @IBOutlet weak var tanggalFilm: UILabel!

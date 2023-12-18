@@ -197,6 +197,7 @@
                                             <outlet property="dimensiFilm" destination="EfK-5e-ahV" id="ZjO-oj-2J4"/>
                                             <outlet property="durasiFilm" destination="FUC-F2-J2y" id="1gM-2h-Mme"/>
                                             <outlet property="hargaFilm" destination="xaT-8Y-aku" id="utN-34-sDY"/>
+                                            <outlet property="imageFilm" destination="zGU-uB-o9K" id="MUX-pg-Xqn"/>
                                             <outlet property="jamFilm" destination="PtX-3A-xZ8" id="9aE-5t-jNt"/>
                                             <outlet property="namaFilm" destination="MrY-bV-Uvc" id="Vyf-5I-ZQb"/>
                                             <outlet property="ratingFilm" destination="1ZO-zV-ldR" id="Nmq-o2-GUn"/>
@@ -438,6 +439,7 @@
                         <outlet property="distributor" destination="QZt-yT-HRn" id="T48-Gk-gtZ"/>
                         <outlet property="durasi" destination="NGw-BZ-KPG" id="nyi-oY-5yN"/>
                         <outlet property="genre" destination="8II-Rt-peD" id="1Ge-rX-j1t"/>
+                        <outlet property="image" destination="GXj-XL-qX4" id="b3o-mq-BBQ"/>
                         <outlet property="judul" destination="ZWd-MK-bQ3" id="rvr-ai-hGb"/>
                         <outlet property="producer" destination="Vj3-DJ-O0T" id="9Ua-Ik-Vav"/>
                         <outlet property="rating" destination="Dqg-bk-Fzm" id="YDc-mg-miL"/>
@@ -822,6 +824,7 @@
                                             <outlet property="dimensiFilm" destination="x9I-ZM-Bfa" id="KsW-nN-zI1"/>
                                             <outlet property="durasiFilm" destination="94e-XP-1i3" id="HMk-zS-NtM"/>
                                             <outlet property="hargaFilm" destination="FbE-20-Tjj" id="C1f-Gt-utQ"/>
+                                            <outlet property="imageFilm" destination="dR2-4W-ffA" id="CYC-6t-YfN"/>
                                             <outlet property="jamFilm" destination="Vfb-tu-4hn" id="NDa-PG-KlV"/>
                                             <outlet property="namaFilm" destination="L4Q-hu-Eql" id="Sef-kc-3Kt"/>
                                             <outlet property="ratingFilm" destination="0vV-ya-bkj" id="gFi-UA-5YG"/>

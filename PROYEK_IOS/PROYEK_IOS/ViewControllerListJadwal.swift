@@ -143,6 +143,11 @@ class ViewControllerListJadwal: UIViewController, UITableViewDelegate, UITableVi
 
                                             cell.namaFilm.text = data["nama"] as? String ?? ""
                                             cell.dimensiFilm.text = data["dimensi"] as? String ?? ""
+                                            if let imageData = data["image"] as? String {
+                                                cell.imageFilm.image = UIImage(named: imageData)
+                                            } else {
+                                                cell.imageFilm.image = UIImage(named: "placeholder_image")
+                                            }
 
                                             if let durasi = data["durasi"] as? Int {
                                                 cell.durasiFilm.text = String(durasi) + " minutes"
@@ -222,6 +227,11 @@ class ViewControllerListJadwal: UIViewController, UITableViewDelegate, UITableVi
                                             guard let document = document, document.exists, let data = document.data() else {
                                                 print("Error getting document: \(String(describing: error))")
                                                 return
+                                            }
+                                            if let imageData = data["image"] as? String {
+                                                cell.imageFilm.image = UIImage(named: imageData)
+                                            } else {
+                                                cell.imageFilm.image = UIImage(named: "placeholder_image")
                                             }
 
                                             cell.namaFilm.text = data["nama"] as? String ?? ""

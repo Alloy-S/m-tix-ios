@@ -127,6 +127,11 @@ class ViewControllerListJadwal2: UIViewController, UITableViewDelegate, UITableV
                                                 print("Error getting document: \(String(describing: error))")
                                                 return
                                             }
+                                            if let imageData = data["image"] as? String {
+                                                cell.imageFilm.image = UIImage(named: imageData)
+                                            } else {
+                                                cell.imageFilm.image = UIImage(named: "placeholder_image")
+                                            }
 
                                             cell.namaFilm.text = data["nama"] as? String ?? ""
                                             cell.dimensiFilm.text = data["dimensi"] as? String ?? ""
@@ -207,6 +212,11 @@ class ViewControllerListJadwal2: UIViewController, UITableViewDelegate, UITableV
                                             guard let document = document, document.exists, let data = document.data() else {
                                                 print("Error getting document: \(String(describing: error))")
                                                 return
+                                            }
+                                            if let imageData = data["image"] as? String {
+                                                cell.imageFilm.image = UIImage(named: imageData)
+                                            } else {
+                                                cell.imageFilm.image = UIImage(named: "placeholder_image")
                                             }
 
                                             cell.namaFilm.text = data["nama"] as? String ?? ""

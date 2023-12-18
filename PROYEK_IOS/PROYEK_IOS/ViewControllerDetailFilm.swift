@@ -11,6 +11,7 @@ import FirebaseFirestore
 class ViewControllerDetailFilm: UIViewController {
 
     
+    @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var judul: UILabel!
     
     @IBOutlet weak var genre: UILabel!
@@ -54,6 +55,11 @@ class ViewControllerDetailFilm: UIViewController {
                         let data = document.data()
                         print(data["nama"] as? String ?? "")
                         self.judul.text = data["nama"] as? String ?? ""
+                        if let imageData = data["image"] as? String {
+                            self.image.image = UIImage(named: imageData)
+                        } else {
+                            self.image.image = UIImage(named: "placeholder_image")
+                        }
                         if let durasi = data["durasi"] as? Int {
                             self.durasi.text = String(durasi)  + " minutes"
                         } else if let durasi = data["durasi"] as? NSNumber {
