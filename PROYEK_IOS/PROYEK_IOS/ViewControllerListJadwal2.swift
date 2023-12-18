@@ -11,11 +11,12 @@ import FirebaseFirestore
 
 class ViewControllerListJadwal2: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var tableFilm: UITableView!
     
-    @IBOutlet weak var telpBioskop: UILabel!
-    @IBOutlet weak var alamatBioskop: UILabel!
     @IBOutlet weak var namaBioskop: UILabel!
+    @IBOutlet weak var alamatBioskop: UILabel!
+    @IBOutlet weak var telpBioskop: UILabel!
+    
+    @IBOutlet weak var tableFilm: UITableView!
     
     var idBioskop :String = ""
     var listIdFilm: [String] = []
