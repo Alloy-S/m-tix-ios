@@ -241,6 +241,10 @@ class ViewControllerListJadwal: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        namaBioskop.font = UIFont.boldSystemFont(ofSize: 20.0)
+        namaBioskop.numberOfLines = 0
+        namaBioskop.lineBreakMode = .byWordWrapping
+        
         tableFilm.delegate = self
         tableFilm.dataSource = self
         
