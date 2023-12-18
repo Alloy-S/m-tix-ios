@@ -31,6 +31,7 @@
 		ADAFD7582B2DF50C00399888 /* ViewControllerDetailFilm.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADAFD7562B2DF50C00399888 /* ViewControllerDetailFilm.xib */; };
 		B028882C2B2F4CBC005574A8 /* upComing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B028882B2B2F4CBC005574A8 /* upComing.swift */; };
 		B028882E2B2F4E1E005574A8 /* nowPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = B028882D2B2F4E1E005574A8 /* nowPlaying.swift */; };
+		B0912DF02B30224B00B81A51 /* UpComingMovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0912DEF2B30224B00B81A51 /* UpComingMovieCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		ADAFD7562B2DF50C00399888 /* ViewControllerDetailFilm.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewControllerDetailFilm.xib; sourceTree = "<group>"; };
 		B028882B2B2F4CBC005574A8 /* upComing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = upComing.swift; sourceTree = "<group>"; };
 		B028882D2B2F4E1E005574A8 /* nowPlaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nowPlaying.swift; sourceTree = "<group>"; };
+		B0912DEF2B30224B00B81A51 /* UpComingMovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingMovieCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				496F943C2B2CA36C007AA0A7 /* SceneDelegate.swift */,
 				496F943E2B2CA36C007AA0A7 /* ViewController.swift */,
 				496F94402B2CA36C007AA0A7 /* Main.storyboard */,
+				B0912DEF2B30224B00B81A51 /* UpComingMovieCollectionViewCell.swift */,
 				AB71DBC22B2F5D0800B2CE2D /* ViewControllerListJadwal2.swift */,
 				AB71DBC42B2F5D2B00B2CE2D /* TableViewCellListJadwal2.swift */,
 				AB5F24132B2F0ADB006CA139 /* ViewControllerListJadwal.swift */,
@@ -208,6 +211,7 @@
 				496F943B2B2CA36C007AA0A7 /* AppDelegate.swift in Sources */,
 				B028882E2B2F4E1E005574A8 /* nowPlaying.swift in Sources */,
 				AB71DBC32B2F5D0800B2CE2D /* ViewControllerListJadwal2.swift in Sources */,
+				B0912DF02B30224B00B81A51 /* UpComingMovieCollectionViewCell.swift in Sources */,
 				496F943D2B2CA36C007AA0A7 /* SceneDelegate.swift in Sources */,
 				49A7E2FE2B2EEB9E00C68050 /* Bioskop.swift in Sources */,
 				AB71DBC52B2F5D2B00B2CE2D /* TableViewCellListJadwal2.swift in Sources */,
