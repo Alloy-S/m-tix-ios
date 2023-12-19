@@ -5,3 +5,6 @@ NAMA KELOPOK:
 - Jessy Marcelyn Winoto - c14210065
 - Frederika Handoyo - C14210185
 
+Versi MAC OS = Ventura 13.2.1
+Versi XCode = 14.3.1
+Versi ios dari simulator yang saya gunakan = 16.4
