@@ -50,8 +50,7 @@ class ViewControllerListJadwal: UIViewController, UITableViewDelegate, UITableVi
                 print("Error getting Movie document: \(String(describing: movieError))")
                 return
             }
-            print("ID FILM KAK : \(idFilm)")
-            print("Doc id KAK : \(movieDocument.documentID)")
+ 
             self.db.collection("JamTayang")
                 .whereField("bioskopId", isEqualTo: self.idBioskop)
                 .whereField("movieId", isEqualTo: idFilm)
@@ -258,8 +257,6 @@ class ViewControllerListJadwal: UIViewController, UITableViewDelegate, UITableVi
                     
                     let idBioskopp = document.documentID
                     
-                    print("IDBIOSKOPP = \(self.idBioskop)")
-                    print("IDBIOSKOPP2 = \(idBioskopp)")
                     if(idBioskopp == self.idBioskop){
                         let data = document.data()
                         

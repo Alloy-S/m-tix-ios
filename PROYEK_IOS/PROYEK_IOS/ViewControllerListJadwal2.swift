@@ -285,8 +285,6 @@ class ViewControllerListJadwal2: UIViewController, UITableViewDelegate, UITableV
                     
                     let idBioskopp = document.documentID
                     
-                    print("IDBIOSKOPP = \(self.idBioskop)")
-                    print("IDBIOSKOPP2 = \(idBioskopp)")
                     if(idBioskopp == self.idBioskop){
                         let data = document.data()
                         
