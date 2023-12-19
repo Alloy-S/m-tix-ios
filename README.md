@@ -1,6 +1,6 @@
 KELAS IOS A
 
-NAMA KELOPOK:
+NAMA KELOMPOK:
 - Alloysius Steven Hartoyo - C14210265
 - catherine rosalind - c14210100
 - Steven Arnold - C14210169
